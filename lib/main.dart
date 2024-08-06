@@ -1,6 +1,5 @@
-import 'package:epic_app/pages/first_page.dart';
-import 'package:epic_app/pages/home_page.dart';
-import 'package:epic_app/pages/settings_pages.dart';
+import 'package:epic_app/config/router/app_router.dart';
+import 'package:epic_app/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,14 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
-      home: FirstPage(),
-      routes: {
-        '/firstpage': (context) => FirstPage(),
-        '/homepage': (context) => HomePage(),
-        '/settingspage': (context) => SettingsPage()
-      },
+      theme: AppTheme().getTheme(),
     );
   }
 }
